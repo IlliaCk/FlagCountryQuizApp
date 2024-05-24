@@ -5,5 +5,15 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.FlagCountryQuestionsApp" parent="Base.Theme.FlagCountryQuestionsApp" />
+    <style name="Theme.FlagCountryQuestionsApp" parent="Base.Theme.FlagCountryQuestionsApp">
+        <item name="colorPrimary">@color/app_1</item>
+        <item name="colorPrimaryVariant">@color/app_2</item>
+        <item name="colorOnPrimary">@color/app_1</item>
+        <item name="materialButtonStyle">@style/GlobalButtonStyle</item>
+    </style>
+
+    <style name="GlobalButtonStyle" parent="Widget.MaterialComponents.Button">
+
+
+    </style>
 </resources>
