@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/signUpFragment">
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.flagcountryquestionsapp.fragments.SignUpFragment"
+        android:label="fragment_signup"
+        tools:layout="@layout/fragment_signup" >
+        <action
+            android:id="@+id/action_signUpFragment_to_quizzGameFragment"
+            app:destination="@id/quizzGameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizzGameFragment"
+        android:name="com.example.flagcountryquestionsapp.fragments.QuizzGameFragment"
+        android:label="fragment_quizz_game"
+        tools:layout="@layout/fragment_quizz_game" >
+        <action
+            android:id="@+id/action_quizzGameFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.flagcountryquestionsapp.fragments.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" />
+</navigation>
