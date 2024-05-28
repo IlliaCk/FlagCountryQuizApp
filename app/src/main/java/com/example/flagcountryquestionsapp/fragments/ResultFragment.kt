@@ -19,19 +19,22 @@ class ResultFragment: Fragment(R.layout.fragment_result) {
         binding= FragmentResultBinding.bind(view)
         sharedPrefs = SharedPrefsManager(requireContext())
 
-        val userName= sharedPrefs.getString(PREFS_USERNAME)
-        val totalScore = sharedPrefs.getInt(PREFS_TOTAL_SCORE)
-
-        with(binding){
-            tvUserNameCongratulation.text ="Congratulation, $userName!"
-            tvScore.text= "Your score is $totalScore out of 10"
-        }
+       setUItextViews()
 
         binding.btnPlayAgain.setOnClickListener {
             findNavController().navigate(R.id.quizzGameFragment)
         }
         binding.btnFinish.setOnClickListener {
             findNavController().navigate(R.id.signUpFragment)
+        }
+    }
+    private fun setUItextViews(){
+        val userName= sharedPrefs.getString(PREFS_USERNAME)
+        val totalScore = sharedPrefs.getInt(PREFS_TOTAL_SCORE)
+
+        with(binding){
+            tvUserNameCongratulation.text ="Congratulation, $userName!"
+            tvScore.text = "Your score is $totalScore out of 10"
         }
     }
 }
