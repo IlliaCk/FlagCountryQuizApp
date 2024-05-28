@@ -115,17 +115,7 @@ class QuizzGameFragment: Fragment(R.layout.fragment_quizz_game), View.OnClickLis
                 selectedOptionView(tvOption4,tvOption4.text.toString())
             }
             binding.buttonCheckVariant.id -> {
-                if (mSelectedValue=="NO_SELECTED_OPTION"){
-                    mCurrentPosition++
-                    when{
-                        mCurrentPosition <= mQuestionsList.size ->{
-                            setQuestion()
-                        }else ->{
-                        sharedPrefs.saveInt(PREFS_TOTAL_SCORE, mCorrectAnswers)
-                        findNavController().navigate(R.id.action_quizzGameFragment_to_resultFragment)
-                    }
-                    }
-                }else{
+                if (mSelectedValue!="NO_SELECTED_OPTION"){
                     val question= mQuestionsList[mCurrentPosition-1]
 
                     val options = ArrayList<TextView>()
@@ -148,7 +138,20 @@ class QuizzGameFragment: Fragment(R.layout.fragment_quizz_game), View.OnClickLis
                     }else{
                         binding.buttonCheckVariant.text="GO TO NEXT QUESTION"
                     }
+
                     mSelectedValue = "NO_SELECTED_OPTION"
+
+
+                }else{
+                    mCurrentPosition++
+                    when{
+                        mCurrentPosition <= mQuestionsList.size ->{
+                            setQuestion()
+                        }else ->{
+                        sharedPrefs.saveInt(PREFS_TOTAL_SCORE, mCorrectAnswers)
+                        findNavController().navigate(R.id.action_quizzGameFragment_to_resultFragment)
+                    }
+                    }
                 }
             }
         }
